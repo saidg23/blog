@@ -1,31 +1,30 @@
-        <h2>Welcome!</h2>
-        <p id="welcome-message">This is my blog where I talk about whatever I currently feel I need to talk about. Who am I? No one special, just your average every day Joe Shmoe.</p>
-        <%
-            printf '<h2>Daily Joke</h2>
-            <div id="daily-joke-container">\n'
-                JOKEJSON=$(curl -s https://v2.jokeapi.dev/joke/Programming,Miscellaneous,Pun?blacklistFlags=nsfw,racist,sexist)
-                ERROR=$(echo $JOKEJSON | jq -r .error)
-                TYPE=$(echo $JOKEJSON | jq -r .type)
-                if [ "$TYPE" = "single" ] && [ "$ERROR" = "false" ]
-                then
-                    printf "<p>$(echo $JOKEJSON | jq -r .joke)</p>"
-                else
-                    printf "<p>$(echo $JOKEJSON | jq -r .setup)</p>\n"
-                    printf "<p>$(echo $JOKEJSON | jq -r .delivery)</p>\n"
-                fi
-                printf '<p id="jokeapi">This joke is brought to you by <a href="https://jokeapi.dev/">JokeAPI</a></p>
-            </div>'
-        %>
-        <h1>Articles</h1>
-        <ul id="list-of-articles">
+          <h2>Welcome!</h2>
+          <p id="welcome-message">This is my blog where I talk about whatever I currently feel I need to talk about. Who am I? No one special, just your average every day Joe Shmoe.</p>
 <%
-    i=1
-    for FILE in $FILES
-    do
-        LOCATION=$(echo $LOCATIONS | cut -d " " -f $i)
-        TITLE=$(pup -f $LOCATION 'h1 text{}')
-        printf "<li><a href=\"$URL/$FILE.html\">$TITLE</a></li>\n"
-        i=$((i+1))
-    done
+printf '          <h2>Daily Joke</h2>
+          <div id="daily-joke-container">\n'
+JOKEJSON=$(curl -s https://v2.jokeapi.dev/joke/Programming,Miscellaneous,Pun?blacklistFlags=nsfw,racist,sexist)
+ERROR=$(echo $JOKEJSON | jq -r .error)
+TYPE=$(echo $JOKEJSON | jq -r .type)
+if [ "$TYPE" = "single" ] && [ "$ERROR" = "false" ]
+then
+  printf "            <p>$(echo $JOKEJSON | jq -r .joke)</p>"
+else
+  printf "            <p>$(echo $JOKEJSON | jq -r .setup)</p>\n"
+  printf "            <p>$(echo $JOKEJSON | jq -r .delivery)</p>\n"
+fi
+printf '            <p id="jokeapi">This joke is brought to you by <a href="https://jokeapi.dev/">JokeAPI</a></p>
+          </div>'
 %>
-        </ul>
+          <h1>Articles</h1>
+          <ul id="list-of-articles"><%
+i=1
+for FILE in $FILES
+do
+  LOCATION=$(echo $LOCATIONS | cut -d " " -f $i)
+  TITLE=$(pup -f $LOCATION 'h1 text{}')
+  printf "\n            <li><a href=\"$URL/$FILE.html\">$TITLE</a></li>"
+  i=$((i+1))
+done
+%>
+          </ul>
