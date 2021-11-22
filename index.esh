@@ -1,7 +1,7 @@
           <h2>Welcome!</h2>
           <p id="welcome-message">This is my blog where I talk about whatever I currently feel I need to talk about. Who am I? No one special, just your average every day Joe Shmoe.</p>
 <%
-JOKEJSON=$(curl -s https://v2.jokeapi.dev/joke/Programming,Miscellaneous,Pun?blacklistFlags=nsfw,racist,sexist,political)
+JOKEJSON=$(curl -s https://v2.jokeapi.dev/joke/Programming,Miscellaneous,Pun?safe-mode?blacklistFlags=nsfw,racist,sexist,political)
 ERROR=$(echo $JOKEJSON | jq -r .error)
 TYPE=$(echo $JOKEJSON | jq -r .type)
 if [ "$TYPE" = "single" ] && [ "$ERROR" = "false" ]
