@@ -21,7 +21,7 @@ build/index.html: index.esh _header.esh
 	esh $< URL=$(URL) FILES='$(patsubst ./%.md,%,$(wildcard ./*.md))' LOCATIONS='$(MARKDOWN)' > $$TMP; \
 	esh _header.esh TITLE="Said Garcia's Blog" > $$TMP2; \
 	cat $$TMP2 $$TMP _footer.html > $@; \
-	rm $$TMP
+	rm $$TMP $$TMP2
 
 build/%: %
 	cp $< build/
