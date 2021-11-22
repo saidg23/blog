@@ -7,16 +7,20 @@ all: setlocal build $(MARKDOWN) build/index.html $(OTHER)
 
 publish: build $(MARKDOWN) build/index.html $(OTHER)
 
-build/%.html: %.md
+build/%.html: %.md _header.esh
 	TMP=$$(mktemp /tmp/wip.XXX); \
+	TMP2=$$(mktemp /tmp/wip.XXX); \
 	lowdown --html-no-skiphtml --html-no-escapehtml $< > $$TMP; \
-	cat _header.html $$TMP _footer.html > $@; \
-	rm $$TMP
+	esh _header.esh TITLE="$$(pup -f $$TMP "h1 text{}")" > $$TMP2; \
+	cat $$TMP2 $$TMP _footer.html > $@; \
+	rm $$TMP $$TMP2
 
-build/index.html: index.esh
+build/index.html: index.esh _header.esh
 	TMP=$$(mktemp /tmp/wip.XXX); \
+	TMP2=$$(mktemp /tmp/wip.XXX); \
 	esh $< URL=$(URL) FILES='$(patsubst ./%.md,%,$(wildcard ./*.md))' LOCATIONS='$(MARKDOWN)' > $$TMP; \
-	cat _header.html $$TMP _footer.html > $@; \
+	esh _header.esh TITLE="Said Garcia's Blog" > $$TMP2; \
+	cat $$TMP2 $$TMP _footer.html > $@; \
 	rm $$TMP
 
 build/%: %
