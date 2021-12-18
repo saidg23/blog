@@ -22,14 +22,20 @@
   fi
 %>
           <h1>Articles</h1>
-          <ul id="list-of-articles"><%
+          <ul id="list-of-articles">
+<%
   i=1
+  ARTICLES=
   for FILE in $FILES
   do
     LOCATION=$(echo $LOCATIONS | cut -d " " -f $i)
+    DATE=$(pup -f $LOCATION '#article-date text{}')
     TITLE=$(pup -f $LOCATION 'h1 text{}')
-    printf "\n            <li><a href=\"$URL/$FILE.html\">$TITLE</a></li>"
+    ARTICLES="$ARTICLES$DATE <a href=\"$URL/$FILE.html\">$TITLE</a>\n"
     i=$((i+1))
   done
-%>
+
+  #printf "\n            <li><a href=\"$URL/$FILE.html\">$TITLE</a></li>"
+  printf "$ARTICLES" | sort -nr -t / -k 3 -k 1 -k2 | awk '{printf "<li><span id='"'"'article-date'"'"'>" $1 "</span>"; $1=""; printf $0 "</li>\n"}'
+-%>
           </ul>
