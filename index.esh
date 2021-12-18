@@ -36,6 +36,6 @@
   done
 
   #printf "\n            <li><a href=\"$URL/$FILE.html\">$TITLE</a></li>"
-  printf "$ARTICLES" | sort -nr -t / -k 3 -k 1 -k2 | awk '{printf "<li><span id='"'"'article-date'"'"'>" $1 "</span>"; $1=""; printf $0 "</li>\n"}'
+  printf "$ARTICLES" | sort -nr -t / -k 3 -k 1 -k2 | awk '{printf "<li><span id='"'"'article-date'"'"'>[" $1 "]</span>"; $1=""; printf $0 "</li>\n"}'
 -%>
           </ul>
