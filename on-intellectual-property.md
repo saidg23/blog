@@ -1,8 +1,6 @@
 # On Intellectual Property
 
-<p id='article-date'>12/18/2021</p>
-
-The idea that an individual or organization can own an idea or some form of information is seen a given to most people today. It's seen as no different from the ownership of physical objects but are they comparable? Should something which has no scarcity or physical form really be subject to exclusive ownership? Well I don't think so in both practical and philosophical terms.
+<p id='article-date'>12/19/2021</p>
 
 The intended purpose of IP---such as copyright and patents---is to promote artistic and technological progress by giving the authors and inventors exclusive rights to their work. This is the most common defense and it seems sound and logical. Why not reward people for putting in the effort to create something new? Enough people agreed it was a good idea that today most of the world is a member of the **World Intellectual Property Organization**---**WIPO**---an international body that aims to implement and enforce a global IP system. But do people really need such an incentive to create? I think the thousands of years of recorded human history beg to differ.
 
