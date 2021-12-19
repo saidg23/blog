@@ -14,7 +14,7 @@
             TITLE=$(pup -f $LOCATION 'h1 text{}')
             LINK="$URL/$FILE"
             DESC=$(pup -f $LOCATION 'p:nth-child(3)' | tr '\n' ' ')
-            ARTICLES="$ARTICLES$DATE&<item>&<title>$TITLE</title>&<link>$LINK</link>&<guid>$LINK</guid>&<pubDate>$(date -d $DATE --rfc-email)</pubDate>&<description><![CDATA[$DESC]]>...</description>&</item>\n"
+            ARTICLES="$ARTICLES$DATE&<item>&<title>$TITLE</title>&<link>$LINK</link>&<guid>$LINK</guid>&<pubDate>$(TZ=US/Eastern date -d $DATE --rfc-email)</pubDate>&<description><![CDATA[$DESC]]>...</description>&</item>\n"
             i=$((i+1))
         done
                 printf "$ARTICLES" | sort -nr -t / -k 3 -k 1 -k2 | awk 'BEGIN {FS = "&"; OFS = FS}; {$1=""; printf $0}' | tr '&' '\n'
