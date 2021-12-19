@@ -12,4 +12,4 @@ People have come to realize how bad things have gotten but it's already too late
 
 So if these technologies exist then why are we still in this mess? Simply because everyone wants to be where the people and right now the people are at Facebook, Twitter, Youtube, Linkedin, Indeed, Reddit, Twitch, etc. It's not easy to convince people to move to a less popular website/app. Specially if they are a "content creator" and want their work to reach the largest number of people. Things won't get better until a critical mass is achieved.
 
-It's not to late to break free. I think everyone should start taking the necessary steps towards being more independent online. You don't have to abstain from everything but you should access and consume the content on your own terms, not theirs.
+It's not too late to break free. I think everyone should start taking the necessary steps towards being more independent online. You don't have to abstain from everything but you should access and consume the content on your own terms, not theirs.
