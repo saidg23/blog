@@ -35,7 +35,7 @@ build:
 setlocal:
 	$(eval URL=http://phoenix:3100)
 
-.PHONY: clean
+.PHONY: push
 
 push:
 	cp build/* /var/www/html/blog
