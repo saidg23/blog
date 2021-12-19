@@ -5,7 +5,7 @@ OTHER = $(filter-out build/_footer.html build/_header.html build/build build/mak
 
 all: setlocal build $(MARKDOWN) build/index.html build/rss.xml $(OTHER)
 
-publish: build $(MARKDOWN) build/index.html build/rss.xml $(OTHER)
+publish: build $(MARKDOWN) build/index.html build/rss.xml $(OTHER) push
 
 build/%.html: %.md _header.esh
 	TMP=$$(mktemp /tmp/wip.XXX); \
@@ -34,6 +34,11 @@ build:
 
 setlocal:
 	$(eval URL=http://phoenix:3100)
+
+.PHONY: clean
+
+push:
+	cp build/* /var/www/html/blog
 
 .PHONY: clean
 
