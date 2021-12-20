@@ -1,7 +1,7 @@
 URL = https://saidgarcia.com
-MARKDOWN = $(patsubst ./%.md,build/%.html,$(wildcard ./*.md))
+MARKDOWN = $(filter-out build/README.html, $(patsubst ./%.md,build/%.html,$(wildcard ./*.md)))
 # ESH = $(patsubst ./%.esh,build/%.html,$(wildcard ./*.esh))
-OTHER = $(filter-out build/_footer.html build/_header.html build/build build/makefile build/%.md build/%.esh build/rss.xml, $(patsubst %,build/%,$(wildcard *)))
+OTHER = $(filter-out build/_footer.html build/_header.html build/build build/makefile build/%.md build/%.esh build/rss.xml build/README.md build/drafts, $(patsubst %,build/%,$(wildcard *)))
 
 all: setlocal build $(MARKDOWN) build/index.html build/rss.xml $(OTHER)
 
@@ -18,13 +18,13 @@ build/%.html: %.md _header.esh
 build/index.html: index.esh _header.esh
 	TMP=$$(mktemp /tmp/wip.XXX); \
 	TMP2=$$(mktemp /tmp/wip.XXX); \
-	esh $< URL=$(URL) FILES='$(patsubst ./%.md,%,$(wildcard ./*.md))' LOCATIONS='$(MARKDOWN)' > $$TMP; \
+	esh $< URL=$(URL) FILES='$(filter-out README, $(patsubst ./%.md,%,$(wildcard ./*.md)))' LOCATIONS='$(MARKDOWN)' > $$TMP; \
 	esh _header.esh TITLE="Said Garcia's Blog" URL=$(URL) > $$TMP2; \
 	cat $$TMP2 $$TMP _footer.html > $@; \
 	rm $$TMP $$TMP2
 
 build/rss.xml: rss.esh $(wildcard ./*.md)
-	esh $< URL=$(URL) FILES='$(patsubst ./%.md,%.html,$(wildcard ./*.md))' LOCATIONS='$(MARKDOWN)' > $@
+	esh $< URL=$(URL) FILES='$(filter-out README.html, $(patsubst ./%.md,%.html,$(wildcard ./*.md)))' LOCATIONS='$(MARKDOWN)' > $@
 
 build/%: %
 	cp $< build/
