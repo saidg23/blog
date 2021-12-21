@@ -9,3 +9,4 @@ Building requires these Dependencies
 * [pup](https://github.com/ericchiang/pup)
 * [jq](https://github.com/stedolan/jq)
 * [esh](https://github.com/jirutka/esh)
+* [lowdown](https://kristaps.bsd.lv/lowdown/)
