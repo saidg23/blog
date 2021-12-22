@@ -2,21 +2,21 @@
           <p id="welcome-message">This is my blog where I talk about whatever I currently feel I need to talk about. Who am I? No one special, just your average every day Joe Shmoe.</p>
 <%
   JOKEJSON=$(curl -s https://v2.jokeapi.dev/joke/Programming,Pun?blacklistFlags=nsfw,religious,political,racist,sexist,explicit)
-  ERROR=$(echo $JOKEJSON | jq -r .error)
-  TYPE=$(echo $JOKEJSON | jq -r .type)
+  ERROR=$(/bin/echo $JOKEJSON | jq -r .error)
+  TYPE=$(/bin/echo $JOKEJSON | jq -r .type)
   if [ "$TYPE" = "single" ] && [ "$ERROR" = "false" ]
   then
     printf '          <h2>Daily Joke</h2>\n'
     printf '          <div id="daily-joke-container">\n'
-    printf "            <p>$(echo $JOKEJSON | jq -r .joke | sed -e ':a' -e 'N' -e '$!ba' -e 's/\n/<br><br>/g')</p>\n"
+    printf "            <p>$(/bin/echo "$JOKEJSON" | jq -r .joke | sed -e ':a' -e 'N' -e '$!ba' -e 's/\n/<br><br>/g')</p>\n"
     printf '            <p id="jokeapi">This joke is brought to you by <a href="https://jokeapi.dev/">JokeAPI</a></p>\n'
     printf '          </div>'
   elif [ "$ERROR" = "false" ]
   then
     printf '          <h2>Daily Joke</h2>\n'
     printf '          <div id="daily-joke-container">\n'
-    printf "            <p>$(echo $JOKEJSON | jq -r .setup)</p>\n"
-    printf "            <p>$(echo $JOKEJSON | jq -r .delivery)</p>\n"
+    printf "            <p>$(/bin/echo $JOKEJSON | jq -r .setup)</p>\n"
+    printf "            <p>$(/bin/echo $JOKEJSON | jq -r .delivery)</p>\n"
     printf '            <p id="jokeapi">This joke is brought to you by <a href="https://jokeapi.dev/">JokeAPI</a></p>\n'
     printf '          </div>'
   fi
@@ -28,7 +28,7 @@
   ARTICLES=
   for FILE in $FILES
   do
-    LOCATION=$(echo $LOCATIONS | cut -d " " -f $i)
+    LOCATION=$(/bin/echo $LOCATIONS | cut -d " " -f $i)
     DATE=$(pup -f $LOCATION '#article-date text{}')
     TITLE=$(pup -f $LOCATION 'h1 text{}')
     ARTICLES="$ARTICLES$DATE <a href=\"$URL/$FILE.html\">$TITLE</a>\n"
