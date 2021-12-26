@@ -90,7 +90,7 @@ pre code
 }
 
 /* #list-of-articles, #list-of-articles li */
-ul, li
+main ul, main li
 {
   margin-left: -0.5em;
   padding-left: -0.5em;
@@ -195,6 +195,8 @@ header
 {
   list-style: none;
   display: flex;
+
+  padding: 0;
 }
 
 #links li
