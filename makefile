@@ -5,7 +5,7 @@ OTHER = $(filter-out build/_footer.html build/_header.html build/build build/mak
 
 all: setlocal build $(MARKDOWN) build/index.html build/rss.xml $(OTHER)
 
-publish: build $(MARKDOWN) build/index.html build/rss.xml $(OTHER) push
+publish: build $(MARKDOWN) build/index.html build/rss.xml $(OTHER)
 
 build/%.html: %.md _header.esh
 	TMP=$$(mktemp /tmp/wip.XXX); \
