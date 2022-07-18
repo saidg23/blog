@@ -27,7 +27,7 @@ build/rss.xml: rss.esh $(wildcard ./*.md)
 	esh $< URL=$(URL) FILES='$(filter-out README.html, $(patsubst ./%.md,%.html,$(wildcard ./*.md)))' LOCATIONS='$(MARKDOWN)' > $@
 
 build/%: %
-	cp $< build/
+	cp -r $< build/
 
 build:
 	mkdir build
@@ -38,7 +38,7 @@ setlocal:
 .PHONY: push
 
 push:
-	cp build/* /var/www/html/blog
+	cp -r build/* /var/www/html/blog
 
 .PHONY: clean
 
