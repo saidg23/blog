@@ -25,7 +25,7 @@ Here are some images I generated using Midjourney
 
 [![](images/flying-islands.png)](/images/flying-islands.png)
 [![](images/synthwavemountain.png)](images/synthwavemountain.png)
-[![](images/umbrelas-during-rain.png)](images/umbrelas-furing-rain.png)
+[![](images/umbrelas-during-rain.png)](images/umbrelas-during-rain.png)
 [![](images/ronin-ink-brush.png)](images/ronin-ink-brush.png)
 [![](images/wendigo.png)](images/wendigo.png)
 [![](images/the-last-supper-wayne-barlowe.png)](images/the-last-supper-wayne-barlowe.png)
