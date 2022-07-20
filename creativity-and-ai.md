@@ -1,6 +1,6 @@
 # Creativity and AI
 
-<p id='article-date'>07/17/2022</p>
+<p id='article-date'>07/20/2022</p>
 
 <figure>
     <a href="/images/yellow-robot.png"><img alt='a yellow and orange robot in a forest during rain' src='/images/yellow-robot.png'></a>
