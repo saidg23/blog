@@ -43,4 +43,4 @@ push:
 .PHONY: clean
 
 clean:
-	rm build/*
+	rm -r build/*
