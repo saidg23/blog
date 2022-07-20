@@ -13,7 +13,7 @@
             DATE=$(pup -f $LOCATION '#article-date text{}')
             TITLE=$(pup -f $LOCATION 'h1 text{}')
             LINK="$URL/$FILE"
-            DESC=$(pup -f $LOCATION 'p:nth-child(3)' | tr '\n' ' ')
+            DESC=$(pup -f $LOCATION 'p:nth-of-type(2)' | tr '\n' ' ')
             ARTICLES="$ARTICLES$DATE&<item>&<title>$TITLE</title>&<link>$LINK</link>&<guid>$LINK</guid>&<pubDate>$(TZ=US/Eastern date -d $DATE --rfc-email)</pubDate>&<description><![CDATA[$DESC<a href="$LINK">Continue reading...</a>]]></description>&</item>\n"
             i=$((i+1))
         done
