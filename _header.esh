@@ -15,7 +15,7 @@
         <ul id="links">
           <li><a href="<%= $URL/rss.xml %>"><img style="display: inline; margin-right: 0.3em" src="rss-symbol.svg"> RSS</a></li>
           <li><a href="https://github.com/saidg23"><img style="display: inline; margin-right: 0.3em" src="git.svg"> Github</a></li>
-          <li><a href="mailto:said.garcia12@gmail.com">Contact</a></li>
+          <li><a href="mailto:asael@saidgarcia.com">Contact</a></li>
         </ul>
       </header>
       <main>
