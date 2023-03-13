@@ -14,12 +14,8 @@ html, body
 h1, h2, h3
 {
   color: #69d68b;
-  margin-bottom: 0.3em;
-}
-
-h2, h3
-{
   margin-top: 0;
+  margin-bottom: 0.3em;
 }
 
 main
@@ -187,6 +183,8 @@ header
 {
   width: 100%;
   padding: 1em 0;
+
+  margin-bottom: 1em;
 
   display: flex;
   align-items: center;
