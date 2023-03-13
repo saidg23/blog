@@ -40,9 +40,16 @@ a:visited
 
 p img, figure img
 {
-  max-width: 100%;
+  width: 100%;
   display: block;
   margin: 0.5em 0;
+
+  image-rendering: optimizeSpeed;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -o-crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: optimize-contrast;
+  -ms-interpolation-mode: nearest-neighbor;
 }
 
 figure
